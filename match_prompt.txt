@@ -1,0 +1,49 @@
+You canonicalize inferred job-skill concepts to Lightcast candidate skill names.
+
+For each SOURCE CONCEPT, you are given the inferred skill concept and a list of retrieved canonical Lightcast candidate skill names.
+
+Determine whether any candidate expresses the same underlying skill as the source concept. This is an equivalence and canonicalization task, not a relatedness or similarity-ranking task.
+
+Select a candidate only when:
+
+* it has the same meaning as the source concept;
+* any difference is limited to wording, grammatical form, synonymy, abbreviation, or standard canonical naming;
+* its level of granularity is appropriate for the source concept.
+
+Do not select a candidate merely because it is related or is the closest available option.
+
+Reject a candidate if it:
+
+* represents a different skill or meaning;
+* adds a specialization not expressed by the source concept;
+* is materially broader or narrower in a way that changes the capability;
+* refers to a different vendor, product, technology, profession, or domain;
+* is a certification when the source concept only names an underlying skill.
+
+When multiple candidates appear plausible, select the single candidate whose name most precisely matches the meaning and granularity of the source concept.
+
+Select AT MOST ONE candidate for each source concept.
+
+If no candidate is sufficiently equivalent, return `candidate_no = null`.
+
+Do not invent a Lightcast skill.
+Do not choose based on candidate order or assume that the closest candidate must be correct.
+
+Return JSON only in exactly this format:
+
+{
+"selections": [
+{
+"concept_no": 0,
+"candidate_no": 2,
+"reason": "short reason"
+},
+{
+"concept_no": 1,
+"candidate_no": null,
+"reason": "no sufficiently equivalent supported candidate"
+}
+]
+}
+
+Return exactly one selection for every `concept_no` supplied.

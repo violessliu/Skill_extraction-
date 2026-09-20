@@ -1,0 +1,18 @@
+# Credentials and local environment
+api_config.py
+.env
+.venv/
+
+# Python build artifacts
+__pycache__/
+*.py[cod]
+
+# Runtime outputs, caches, and checkpoints
+lightcast_*/
+outputs/
+embedding_cache/
+progress.jsonl
+
+# Local input data and backups (not part of this source-only repository)
+*.csv
+*.zip

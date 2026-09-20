@@ -1,0 +1,7 @@
+numpy
+pandas
+torch
+faiss-cpu
+sentence-transformers
+openai
+httpx
